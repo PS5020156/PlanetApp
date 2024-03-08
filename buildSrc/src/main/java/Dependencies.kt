@@ -1,0 +1,17 @@
+object Dependencies {
+    const val core = "androidx.core:core-ktx:${Versions.coreVersion}"
+    const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.runtimeKtx}"
+    const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val composeBom = "androidx.compose:compose-bom:${Versions.composeBom}"
+    const val composeUi = "androidx.compose.ui:ui"
+    const val composeUiGraphics = "androidx.compose.ui:ui-graphics"
+    const val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
+    const val material3 = "androidx.compose.material3:material3"
+    const val junit = "junit:junit:${Versions.junitVersion}"
+    const val extJunit = "androidx.test.ext:junit:${Versions.extJUnitVersion}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCoreVersion}"
+    const val composeBomTest = "androidx.compose:compose-bom:${Versions.composeBomVersion}"
+    const val junit4 = "androidx.compose.ui:ui-test-junit4"
+    const val uiTooling = "androidx.compose.ui:ui-tooling"
+    const val testManifest = "androidx.compose.ui:ui-test-manifest"
+}
