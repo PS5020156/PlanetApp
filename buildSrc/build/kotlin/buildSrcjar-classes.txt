@@ -1,0 +1,1 @@
+C:\Users\perfe\AndroidStudioProjects\PlanetApp\buildSrc\build\classes\kotlin\main\Configs.class;C:\Users\perfe\AndroidStudioProjects\PlanetApp\buildSrc\build\classes\kotlin\main\Dependencies.class;C:\Users\perfe\AndroidStudioProjects\PlanetApp\buildSrc\build\classes\kotlin\main\Versions.class
