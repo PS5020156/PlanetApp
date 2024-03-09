@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,4 +68,18 @@ dependencies {
     androidTestImplementation(Dependencies.junit4)
     debugImplementation(Dependencies.uiTooling)
     debugImplementation(Dependencies.testManifest)
+    implementation(Dependencies.hiltAndroid)
+    kapt(Dependencies.hiltAndroidCompiler)
+    implementation(Dependencies.gson)
+    implementation(Dependencies.retrofit2)
+    implementation(Dependencies.runtimeCompose)
+    implementation(Dependencies.navigationCompose)
+    implementation(Dependencies.navigationUi)
+    implementation(Dependencies.fragmentKtx)
+    implementation(Dependencies.room)
+    annotationProcessor(Dependencies.roomCompiler)
+    kapt(Dependencies.roomCompiler)
+    implementation(Dependencies.roomKtx)
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 }

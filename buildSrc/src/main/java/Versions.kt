@@ -7,4 +7,9 @@ object Versions {
     const val extJUnitVersion = "1.1.5"
     const val espressoCoreVersion = "3.5.1"
     const val composeBomVersion = "2023.08.00"
+    const val nav_version = "2.7.6"
+    const val room_version = "2.6.1"
+    const val hilt_version = "2.48"
+    const val retrofit_version = "2.9.0"
+    const val runtime_compose = "2.6.2"
 }

@@ -1,4 +1,4 @@
-package com.jpmc.planetapp.presentation.ui.theme
+package com.jpmc.planetapp.ui.theme
 
 import android.app.Activity
 import android.os.Build

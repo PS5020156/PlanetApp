@@ -1,6 +1,7 @@
 package com.jpmc.planetapp
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class PlanetApplication : Application() {
-}
+@HiltAndroidApp
+class PlanetApplication : Application()
