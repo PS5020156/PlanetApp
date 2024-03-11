@@ -40,4 +40,6 @@ object Dependencies {
     const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTestingVersion}"
     const val turbine = "app.cash.turbine:turbine:${Versions.turbineVersion}"
     const val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInlineVersion}"
+    const val navigationComposeHilt =
+        "androidx.hilt:hilt-navigation-compose:${Versions.hiltComposeNavigation}"
 }

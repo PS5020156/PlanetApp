@@ -12,6 +12,7 @@ object Versions {
     const val hilt_version = "2.48"
     const val retrofit_version = "2.9.0"
     const val runtime_compose = "2.6.2"
+    const val hiltComposeNavigation = "1.2.0"
 
     // test version
     const val roomTestingVersion = "2.5.1"
