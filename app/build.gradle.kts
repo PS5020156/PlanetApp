@@ -44,11 +44,11 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
     }
+
 }
 
 dependencies {
@@ -82,4 +82,16 @@ dependencies {
     implementation(Dependencies.roomKtx)
 
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    //   testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$1.7.1")
+    testImplementation(Dependencies.roomTesting)
+    testImplementation(Dependencies.mockServer)
+    testImplementation(Dependencies.coroutineTest)
+    testImplementation(Dependencies.mockitoTest)
+    testImplementation(Dependencies.mockitoKotlinTest)
+    testImplementation(Dependencies.coreTesting)
+    testImplementation(Dependencies.turbine)
+    testImplementation(Dependencies.mockitoInline)
+    // implementation("org.mockito:mockito-inline:3.6.28")
+    // testImplementation("com.google.truth:truth:1.4.2")
+
 }

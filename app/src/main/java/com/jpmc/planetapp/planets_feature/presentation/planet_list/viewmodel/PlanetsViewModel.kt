@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.jetbrains.annotations.VisibleForTesting
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,7 +28,8 @@ class PlanetsViewModel @Inject constructor(
         getAllPlanets()
     }
 
-    private fun getAllPlanets() = planetsUseCase().onEach { planets ->
+    @VisibleForTesting
+    fun getAllPlanets() = planetsUseCase().onEach { planets ->
         when (planets) {
             is Result.Failure -> {
                 mutablePlanetsState.value = PlanetsState(errorMsg = planets.errorMsg!!)

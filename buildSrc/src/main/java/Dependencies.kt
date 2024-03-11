@@ -28,4 +28,16 @@ object Dependencies {
     const val room = "androidx.room:room-runtime:${Versions.room_version}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room_version}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room_version}"
+
+    // test implementations
+    const val roomTesting = "androidx.room:room-testing:${Versions.roomTestingVersion}"
+    const val mockServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockServerVersion}"
+    const val coroutineTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutineVersion}"
+    const val mockitoTest = "org.mockito:mockito-core:${Versions.mockitoTestVersion}"
+    const val mockitoKotlinTest =
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlinTestVersion}"
+    const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTestingVersion}"
+    const val turbine = "app.cash.turbine:turbine:${Versions.turbineVersion}"
+    const val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInlineVersion}"
 }

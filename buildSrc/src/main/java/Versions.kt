@@ -12,4 +12,14 @@ object Versions {
     const val hilt_version = "2.48"
     const val retrofit_version = "2.9.0"
     const val runtime_compose = "2.6.2"
+
+    // test version
+    const val roomTestingVersion = "2.5.1"
+    const val mockServerVersion = "4.11.0"
+    const val coroutineVersion = "1.5.2"
+    const val mockitoTestVersion = "4.0.0"
+    const val mockitoKotlinTestVersion = "2.2.0"
+    const val coreTestingVersion = "2.1.0"
+    const val turbineVersion = "1.1.0"
+    const val mockitoInlineVersion = "3.6.0"
 }
