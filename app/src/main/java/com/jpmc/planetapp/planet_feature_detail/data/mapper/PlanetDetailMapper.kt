@@ -6,7 +6,15 @@ import com.jpmc.planetapp.planet_feature_detail.domain.model.PlanetDetail
 
 
 fun PlanetDetailEntity.toDomainPlanetDetail(): PlanetDetail {
-    return PlanetDetail(id, name, orbitalPeriod, population, rotationPeriod, terrain, url)
+    return PlanetDetail(
+        id = id,
+        name = name,
+        orbitalPeriod = orbitalPeriod,
+        population = population,
+        rotationPeriod = rotationPeriod,
+        terrain = terrain,
+        url = url
+    )
 }
 
 fun Result.toPlanetDetailEntity(): PlanetDetailEntity {

@@ -9,10 +9,10 @@ import com.jpmc.planetapp.planet_feature_detail.data.local.entity.PlanetDetailEn
 @Dao
 interface PlanetDetailDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPlanetDetail(planetDetailEntity: PlanetDetailEntity)
+    fun insertPlanetDetail(planetDetailEntity: PlanetDetailEntity)
 
     @Query("delete from planet_detail")
-    suspend fun deletePlanetDetails()
+    fun deletePlanetDetails()
 
     @Query("select * from planet_detail where id = :id")
     suspend fun getPlanetDetail(id: String): PlanetDetailEntity

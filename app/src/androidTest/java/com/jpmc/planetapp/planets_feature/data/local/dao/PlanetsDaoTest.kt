@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
-class PackageDaoTest {
+class PlanetsDaoTest {
 
     private lateinit var planetsDatabase: PlanetsDatabase
     private lateinit var planetsDao: PlanetsDao
@@ -32,7 +32,7 @@ class PackageDaoTest {
 
 
     @Test
-    fun insertAllPlanets_expectedSingleCocktail() = runTest {
+    fun insertAllPlanets_expectedSinglePlanet() = runTest {
         planetsDao.insertPlanets(planets)
         val actual = planetsDao.getPlanets()
         Assert.assertEquals(1, actual.size)
@@ -42,7 +42,7 @@ class PackageDaoTest {
     fun checkPlanets_isPresent_expectedTrue() = runTest {
         planetsDao.insertPlanets(planets)
         val actual = planetsDao.getPlanets()
-        Assert.assertEquals("Tatooine", actual[0].name)
+        Assert.assertEquals(TestConstant.NAME, actual[0].name)
     }
 
     @Test

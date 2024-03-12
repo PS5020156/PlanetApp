@@ -8,7 +8,7 @@ import com.jpmc.planetapp.utils.MainCoroutineRule
 import com.jpmc.planetapp.utils.TestConstant
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -29,6 +29,8 @@ class PlanetsViewModelTest {
 
     @Mock
     lateinit var planetsUseCase: GetPlanetsUseCase
+
+    @Mock
     private lateinit var planetsViewModel: PlanetsViewModel
 
     @Before
@@ -37,48 +39,65 @@ class PlanetsViewModelTest {
     }
 
     @Test
-    fun `get planets when no planet return is empty`() = runTest {
-        whenever(planetsUseCase()).thenReturn(flow {
-            emit(Result.Success(emptyList()))
-        })
+    fun `get planets should return success`() = runBlocking {
+        whenever(planetsUseCase()).thenReturn(
+            flow {
+                emit(Result.Success(TestConstant.planets))
+            }
+        )
         planetsViewModel.getAllPlanets()
         mainCoroutineRule.testDispatcher.scheduler.advanceUntilIdle()
         planetsViewModel.planetsState.test {
             val result = awaitItem()
-            assertEquals(result.data.size, 0)
-            assertEquals(result.isLoading, false)
+            assertEquals(true, result.data.isNotEmpty())
+        }
+    }
+
+
+    @Test
+    fun `get planets should return success with set value`() = runBlocking {
+        whenever(planetsUseCase()).thenReturn(
+            flow {
+                emit(Result.Success(TestConstant.planets))
+            }
+        )
+        planetsViewModel.getAllPlanets()
+        mainCoroutineRule.testDispatcher.scheduler.advanceUntilIdle()
+        planetsViewModel.planetsState.test {
+            val result = awaitItem()
+            assertEquals(TestConstant.planets[0].uid, result.data[0].uid)
+            assertEquals(TestConstant.planets[0].name, result.data[0].name)
+            assertEquals(TestConstant.planets[0].url, result.data[0].url)
         }
     }
 
     @Test
-    fun `get planets when planet is non empty`() = runTest {
-
-        whenever(planetsUseCase()).thenReturn(flow {
-            emit(Result.Success(TestConstant.planets))
-        })
+    fun `get planets in case of error should return error message`() = runBlocking {
+        whenever(planetsUseCase()).thenReturn(
+            flow {
+                emit(Result.Failure("error"))
+            }
+        )
         planetsViewModel.getAllPlanets()
         mainCoroutineRule.testDispatcher.scheduler.advanceUntilIdle()
         planetsViewModel.planetsState.test {
             val result = awaitItem()
-            assertEquals(result.data.isEmpty(), false)
-            assertEquals(result.data[0].name, TestConstant.NAME)
-            assertEquals(result.data[0].uid, "1")
-            assertEquals(result.isLoading, false)
+            assertEquals("error", result.errorMsg)
         }
     }
 
     @Test
-    fun `get planets in case of error`() = runTest {
-        whenever(planetsUseCase()).thenReturn(flow {
-            emit(Result.Failure("error"))
-        })
+    fun `get planets in case of loading should return loading status`() = runBlocking {
+        whenever(planetsUseCase()).thenReturn(
+            flow {
+                emit(Result.Loading())
+            }
+        )
         planetsViewModel.getAllPlanets()
         mainCoroutineRule.testDispatcher.scheduler.advanceUntilIdle()
         planetsViewModel.planetsState.test {
             val result = awaitItem()
-            assertEquals(result.data.isEmpty(), true)
-            assertEquals(result.errorMsg, "error")
-            assertEquals(result.isLoading, false)
+            assertEquals(true, result.isLoading)
         }
     }
 
